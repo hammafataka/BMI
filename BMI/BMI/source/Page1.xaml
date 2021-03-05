@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BMI.source.Page1">
+    <ContentPage.Content>
+        <StackLayout
+            Spacing="20" Margin="30">
+            <Grid ColumnSpacing="5" RowSpacing="5">
+               
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Label Text="Units:"
+                       x:Name="unit"
+                       TextColor="Black"
+                       FontSize="25"
+                       FontAttributes="Italic"
+                       Grid.Column="0"
+                       Grid.Row="0"/>
+
+                <Picker x:Name="picker1"
+                        Title="None"
+                        TitleColor="Black"
+                        ItemsSource="{Binding mtypeList}"
+                        ItemDisplayBinding="{Binding value}"
+                        SelectedItem="{Binding selectedType}"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        VerticalOptions="StartAndExpand"
+                        >
+        
+                </Picker>
+                
+                
+
+                <Label x:Name="Height"
+                       Text="Height:"
+                       TextColor="Black"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       VerticalOptions="EndAndExpand"
+                       FontSize="25"
+                       FontAttributes="Italic"
+                       >
+                    
+                </Label>
+                <Entry x:Name="heightEntry"
+                       Placeholder="Enter here"
+                       Keyboard="Numeric"
+                       BindingContext="{x:Reference heightstepper}" 
+                       Text="{Binding Value}"
+                       Grid.Row="2"
+                       Grid.Column="1"
+                       VerticalOptions="StartAndExpand"
+                       VerticalTextAlignment="Start"
+                       HorizontalOptions="EndAndExpand"
+                       
+                       />
+                <Label Text="{Binding kg}"
+                       TextColor="DarkRed"
+                       Grid.Row="3"
+                       Grid.Column="1"
+                       VerticalOptions="StartAndExpand"
+                       HorizontalOptions="CenterAndExpand" 
+                       FontAttributes="Italic"
+                       x:Name="kgLbl"
+                       >
+
+                </Label>
+
+                <Label x:Name="wieght"
+                       Text="Weight:"
+                       
+                       TextColor="Black"
+                       Grid.Row="4"
+                       Grid.Column="0"
+                       VerticalOptions="EndAndExpand"
+                       FontSize="25"
+                       FontAttributes="Italic"
+                       >
+
+                </Label>
+                <Entry x:Name="weightEntry"
+                       Placeholder="Enter here"
+                       Keyboard="Numeric"
+                       Grid.Row="4"
+                       Grid.Column="1"
+                       VerticalOptions="StartAndExpand"
+                       VerticalTextAlignment="Start"
+                       HorizontalOptions="EndAndExpand"
+                       BindingContext="{x:Reference weightStepper}" 
+                       Text="{Binding Value}"
+                       
+                       />
+                <Label Text="{Binding cm}"
+                       TextColor="DarkRed"
+                       Grid.Row="5"
+                       Grid.Column="1"
+                       VerticalOptions="End"
+                       VerticalTextAlignment="End"
+                       HorizontalOptions="CenterAndExpand" 
+                       FontAttributes="Italic"
+                       x:Name="cmLbl"
+                       
+                       >
+
+                </Label>
+
+                <Stepper Grid.Column="2"
+                         Grid.Row="2"
+                         x:Name="heightstepper"
+                         Minimum="0"
+                         Maximum="300"
+                         Increment="1"
+                         >
+                         
+                    
+                </Stepper>
+                <Stepper Grid.Column="2"
+                         x:Name="weightStepper"
+                         Grid.Row="4" 
+                         Minimum="0"
+                         Maximum="200"
+                         Increment="1"
+                         >
+
+                </Stepper>
+
+                
+               
+            </Grid>
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+
+                <Button Text="Results"
+                       x:Name="result"
+                       TextColor="Black"
+                       Grid.Column="1"
+                       Grid.Row="7" 
+                       FontSize="30"
+                       FontAttributes="Bold"
+                       HorizontalOptions="End"
+                        Clicked="result_Clicked">
+
+                </Button>
+
+
+
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="Start">
+
+
+
+                <Label Text="BMI"
+                      
+                       FontSize="25"
+                       TextColor="Black"
+                       FontAttributes="Bold"/>
+                <Label Text="00.00(Normal)"
+                       x:Name="resultLbl"
+                       FontSize="18"
+                       FontAttributes="Italic"
+                       HorizontalOptions="EndAndExpand"
+                       />
+            </StackLayout>
+            <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="End">
+
+
+                <Button Text="Reset"
+                        x:Name="resetBtn"
+                        Clicked="resetBtn_Clicked"
+                        />
+
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
