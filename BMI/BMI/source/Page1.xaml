@@ -61,7 +61,7 @@
                        HorizontalOptions="EndAndExpand"
                        
                        />
-                <Label Text="{Binding kg}"
+                <Label Text="{Binding cm}"
                        TextColor="DarkRed"
                        Grid.Row="3"
                        Grid.Column="1"
@@ -97,7 +97,7 @@
                        Text="{Binding Value}"
                        
                        />
-                <Label Text="{Binding cm}"
+                <Label Text="{Binding kg}"
                        TextColor="DarkRed"
                        Grid.Row="5"
                        Grid.Column="1"
@@ -117,6 +117,7 @@
                          Minimum="0"
                          Maximum="300"
                          Increment="1"
+                         
                          >
                          
                     
@@ -141,9 +142,10 @@
                        TextColor="Black"
                        Grid.Column="1"
                        Grid.Row="7" 
-                       FontSize="30"
+                       FontSize="20"
+                        WidthRequest="350"
                        FontAttributes="Bold"
-                       HorizontalOptions="End"
+                       HorizontalOptions="FillAndExpand" 
                         Clicked="result_Clicked">
 
                 </Button>
