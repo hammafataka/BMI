@@ -95,6 +95,7 @@
                        HorizontalOptions="EndAndExpand"
                        BindingContext="{x:Reference weightStepper}" 
                        Text="{Binding Value}"
+                       TextChanged='weightEntry_SizeChanged'
                        
                        />
                 <Label Text="{Binding kg}"
@@ -135,20 +136,19 @@
                 
                
             </Grid>
-            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+            <StackLayout  >
 
-                <Button Text="Results"
+                <Label Text="Results"
                        x:Name="result"
                        TextColor="Black"
                        Grid.Column="1"
                        Grid.Row="7" 
-                       FontSize="20"
-                        WidthRequest="350"
+                       FontSize="50"
                        FontAttributes="Bold"
-                       HorizontalOptions="FillAndExpand" 
-                        Clicked="result_Clicked">
+                       HorizontalOptions="CenterAndExpand" 
+                      >
 
-                </Button>
+                </Label>
 
 
 
@@ -175,6 +175,7 @@
                 <Button Text="Reset"
                         x:Name="resetBtn"
                         Clicked="resetBtn_Clicked"
+                        CornerRadius="20"
                         />
 
 

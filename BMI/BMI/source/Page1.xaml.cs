@@ -19,64 +19,7 @@ namespace BMI.source
             BindingContext = new classes.types();
         
         }
-     
-
-        private async void result_Clicked(object sender, EventArgs e)
-        {
-            if (picker1.SelectedIndex==0)
-            {
-                double BMI;
-                double kg = double.Parse(weightEntry.Text);
-                double m = double.Parse(heightEntry.Text);
-                BMI = kg / ((m / 100) * (m / 100));
-
-                if (BMI>18.5 && BMI<24.9)
-                {
-                    resultLbl.Text = BMI.ToString("N2") +" (Normal)";
-
-                }
-                else if (BMI<18.5)
-                {
-                    resultLbl.Text = BMI.ToString("N2") + " (Underweight)";
-
-                }
-                else if (BMI>24.9)
-                {
-                    resultLbl.Text = BMI.ToString("N2") + " (Overweight)";
-                }
-            
-
-            }
-            else if (picker1.SelectedIndex==2)
-            {
-                double BMI;
-                double kg = double.Parse(weightEntry.Text);
-                double m = double.Parse(heightEntry.Text);
-                BMI =( kg / m  / m )*703;
-
-                if (BMI > 18.5 && BMI < 24.9)
-                {
-                    resultLbl.Text = BMI.ToString("N2") + " (Normal)";
-
-                }
-                else if (BMI < 18.5)
-                {
-                    resultLbl.Text = BMI.ToString("N2") + " (Underweight )";
-
-                }
-                else if (BMI > 24.9)
-                {
-                    resultLbl.Text = BMI.ToString("N2") + " (Overweight)";
-                }
-
-            }
-            else
-            {
-                await App.Current.MainPage.DisplayAlert("Error", "Please choose a Unit", "OK");
-            }
-           
-
-        }
+    
 
         private void resetBtn_Clicked(object sender, EventArgs e)
         {
@@ -91,74 +34,82 @@ namespace BMI.source
         }
         private async void hamma()
         {
-            if (picker1.SelectedIndex == 0)
+            try
             {
-                int z = 0;
-                double BMI;
-                if (weightEntry.Text == null)
+                if (picker1.SelectedIndex == 0)
                 {
-                    weightEntry.Text = z.ToString();
-                }
-                double kg = double.Parse(weightEntry.Text);
-                double m = double.Parse(heightEntry.Text);
-                BMI = kg / ((m / 100) * (m / 100));
+                    double BMI;
 
-                if (BMI > 18.5 && BMI < 24.9)
+
+
+                    double kg = double.Parse(weightEntry.Text);
+
+                    double m = double.Parse(heightEntry.Text);
+                    BMI = kg / ((m / 100) * (m / 100));
+
+                    if (BMI > 18.5 && BMI < 24.9)
+                    {
+                        resultLbl.Text = BMI.ToString("N2") + " (Normal)";
+
+                    }
+                    else if (BMI < 18.5)
+                    {
+                        resultLbl.Text = BMI.ToString("N2") + " (Underweight)";
+
+                    }
+                    else if (BMI > 24.9)
+                    {
+                        resultLbl.Text = BMI.ToString("N2") + " (Overweight)";
+                    }
+
+
+                }
+                else if (picker1.SelectedIndex == 2)
                 {
-                    resultLbl.Text = BMI.ToString("N2") + " (Normal)";
+                    int z = 0;
+                    double BMI;
+                    if (weightEntry.Text == null)
+                    {
+                        weightEntry.Text = z.ToString();
+                    }
+
+                    double kg = double.Parse(weightEntry.Text);
+                    double m = double.Parse(heightEntry.Text);
+                    BMI = (kg / m / m) * 703;
+
+                    if (BMI > 18.5 && BMI < 24.9)
+                    {
+                        resultLbl.Text = BMI.ToString("N2") + " (Normal)";
+
+                    }
+                    else if (BMI < 18.5)
+                    {
+                        resultLbl.Text = BMI.ToString("N2") + " (Underweight )";
+
+                    }
+                    else if (BMI > 24.9)
+                    {
+                        resultLbl.Text = BMI.ToString("N2") + " (Overweight)";
+                    }
 
                 }
-                else if (BMI < 18.5)
+                else
                 {
-                    resultLbl.Text = BMI.ToString("N2") + " (Underweight)";
-
+                    await App.Current.MainPage.DisplayAlert("Error", "Please choose a Unit", "OK");
                 }
-                else if (BMI > 24.9)
-                {
-                    resultLbl.Text = BMI.ToString("N2") + " (Overweight)";
-                }
-
-
             }
-            else if (picker1.SelectedIndex == 2)
+            catch (Exception e)
             {
-                int z = 0;
-                double BMI;
-                if (weightEntry.Text==null)
-                {
-                    weightEntry.Text = z.ToString();
-                }
-               
-                double kg = double.Parse(weightEntry.Text);
-                double m = double.Parse(heightEntry.Text);
-                BMI = (kg / m / m) * 703;
-
-                if (BMI > 18.5 && BMI < 24.9)
-                {
-                    resultLbl.Text = BMI.ToString("N2") + " (Normal)";
-
-                }
-                else if (BMI < 18.5)
-                {
-                    resultLbl.Text = BMI.ToString("N2") + " (Underweight )";
-
-                }
-                else if (BMI > 24.9)
-                {
-                    resultLbl.Text = BMI.ToString("N2") + " (Overweight)";
-                }
-
             }
-            else
-            {
-                await App.Current.MainPage.DisplayAlert("Error", "Please choose a Unit", "OK");
-            }
+            
         }
 
-        private void weightEntry_TextChanged(object sender, TextChangedEventArgs e)
-        {
 
+        private void weightEntry_SizeChanged(object sender, EventArgs e)
+        {
             hamma();
+           
+
         }
     }
 }
